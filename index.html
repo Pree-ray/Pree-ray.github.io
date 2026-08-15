@@ -172,7 +172,7 @@
     <div class="hero-meta">
       <span>Coimbatore, India</span>
       <a href="mailto:mailtorampreethi@gmail.com">Email</a>
-      <span>Phone available on request</span>
+      <a href="#" class="phone-link" id="phone-hero" onclick="return revealPhone(event, this)">Show phone</a>
       <a href="https://github.com/Pree-ray" target="_blank" rel="noopener">GitHub ↗</a>
       <a href="https://www.linkedin.com/in/rampreethi-rajendran/" target="_blank" rel="noopener">LinkedIn ↗</a>
     </div>
@@ -318,11 +318,28 @@
       <a href="mailto:mailtorampreethi@gmail.com">Email</a>
       <a href="https://github.com/Pree-ray" target="_blank" rel="noopener">GitHub</a>
       <a href="https://www.linkedin.com/in/rampreethi-rajendran/" target="_blank" rel="noopener">LinkedIn</a>
-      <span>Phone available on request</span>
+      <a href="#" class="phone-link" id="phone-footer" onclick="return revealPhone(event, this)">Show phone</a>
     </div>
     <div class="fine">Coimbatore, India · Built &amp; deployed on GitHub Pages</div>
   </div>
 </footer>
 
+<script>
+  // Number is never present as plain text in the page source, so static
+  // scrapers/bots that only read the HTML never see it. First click reveals
+  // the digits and turns the link into a real tel: link; a second click (or
+  // tap, on mobile) places the call.
+  function revealPhone(evt, el){
+    if(el.dataset.revealed === 'true') return true; // let the tel: link work normally
+    evt.preventDefault();
+    var parts = ['+91', ' ', '88', '38', '04', '05', '36'];
+    var number = parts.join('');
+    var digits = number.replace(/\s+/g,'');
+    el.textContent = number;
+    el.href = 'tel:' + digits;
+    el.dataset.revealed = 'true';
+    return false;
+  }
+</script>
 </body>
 </html>
