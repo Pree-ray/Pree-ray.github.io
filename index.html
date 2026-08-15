@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rampreethi Rajendran — Senior .NET / C# Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#12151c;
+    --bg-raised:#191d26;
+    --panel:#1d222c;
+    --line:#2a3040;
+    --text:#e9ebf0;
+    --text-dim:#8b93a4;
+    --text-faint:#5a6274;
+    --teal:#4fd1c5;
+    --teal-dim:#2c6b64;
+    --amber:#f0a868;
+    --coral:#e8697a;
+    --font-display:'Space Grotesk',sans-serif;
+    --font-body:'Inter',sans-serif;
+    --font-mono:'IBM Plex Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 28px;}
+
+  /* ---- nav ---- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(18,21,28,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;}
+  .brand{font-family:var(--font-mono);font-size:13px;color:var(--text-dim);letter-spacing:.02em;}
+  .brand b{color:var(--text);}
+  .navlinks{display:flex;gap:26px;font-family:var(--font-mono);font-size:12.5px;}
+  .navlinks a{color:var(--text-dim);text-decoration:none;transition:color .15s;}
+  .navlinks a:hover{color:var(--teal);}
+  @media(max-width:600px){.navlinks{display:none;}}
+
+  /* ---- hero ---- */
+  header.hero{padding:72px 0 40px;border-bottom:1px solid var(--line);}
+  .status-pill{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--font-mono);font-size:12px;color:var(--teal);
+    border:1px solid var(--teal-dim);background:rgba(79,209,197,0.06);
+    padding:5px 12px;border-radius:100px;margin-bottom:22px;
+    letter-spacing:.04em;
+  }
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);
+    box-shadow:0 0 0 0 rgba(79,209,197,.6);
+    animation:pulse 2.2s infinite;}
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(79,209,197,.55);}
+    70%{box-shadow:0 0 0 7px rgba(79,209,197,0);}
+    100%{box-shadow:0 0 0 0 rgba(79,209,197,0);}
+  }
+  @media(prefers-reduced-motion:reduce){.dot{animation:none;}}
+
+  h1{font-family:var(--font-display);font-weight:700;font-size:clamp(32px,5vw,48px);
+    letter-spacing:-0.01em;line-height:1.08;}
+  .role{font-family:var(--font-mono);color:var(--text-dim);font-size:15px;margin-top:10px;}
+  .summary{max-width:620px;color:var(--text-dim);font-size:15.5px;margin-top:20px;}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:18px;margin-top:26px;font-family:var(--font-mono);font-size:12.5px;color:var(--text-faint);}
+  .hero-meta a{text-decoration:none;color:var(--text-faint);border-bottom:1px dotted var(--text-faint);transition:color .15s,border-color .15s;}
+  .hero-meta a:hover{color:var(--teal);border-color:var(--teal);}
+
+  /* ---- uptime bar (signature element) ---- */
+  .uptime{margin-top:44px;}
+  .uptime-label{font-family:var(--font-mono);font-size:11px;color:var(--text-faint);
+    text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;display:flex;justify-content:space-between;}
+  .uptime-track{display:flex;height:34px;border-radius:6px;overflow:hidden;border:1px solid var(--line);}
+  .seg{position:relative;height:100%;display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-mono);font-size:10.5px;cursor:default;transition:filter .15s;}
+  .seg:hover{filter:brightness(1.25);}
+  .seg.active{background:repeating-linear-gradient(135deg,var(--teal-dim),var(--teal-dim) 6px,#256560 6px,#256560 12px);color:#d9fbf6;}
+  .seg.gap{background:var(--bg-raised);color:var(--text-faint);border-left:1px dashed var(--line);border-right:1px dashed var(--line);}
+  .seg.now{background:var(--teal);color:#0b1512;font-weight:600;}
+  .uptime-legend{display:flex;gap:22px;margin-top:10px;font-family:var(--font-mono);font-size:10.5px;color:var(--text-faint);}
+  .uptime-legend span{display:inline-flex;align-items:center;gap:6px;}
+  .sw{width:9px;height:9px;border-radius:2px;display:inline-block;}
+
+  /* ---- section shell ---- */
+  section{padding:60px 0;border-bottom:1px solid var(--line);}
+  .eyebrow{font-family:var(--font-mono);font-size:11.5px;color:var(--teal);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;}
+  h2{font-family:var(--font-display);font-size:24px;font-weight:600;margin-bottom:28px;}
+
+  /* ---- experience: log entries ---- */
+  .log{border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:18px;background:var(--panel);}
+  .log-head{display:flex;justify-content:space-between;align-items:baseline;padding:16px 20px;flex-wrap:wrap;gap:8px;
+    border-bottom:1px solid var(--line);}
+  .log-role{font-family:var(--font-display);font-weight:600;font-size:16.5px;}
+  .log-org{color:var(--text-dim);font-size:13.5px;margin-top:2px;}
+  .log-time{font-family:var(--font-mono);font-size:11.5px;color:var(--text-faint);white-space:nowrap;}
+  .log-body{padding:18px 20px 20px;}
+  .log-project{font-family:var(--font-mono);font-size:12px;color:var(--amber);margin-bottom:10px;}
+  ul.bullets{padding-left:18px;color:var(--text-dim);font-size:14.5px;}
+  ul.bullets li{margin-bottom:8px;}
+  .stack{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px;}
+  .chip{font-family:var(--font-mono);font-size:11px;color:var(--text-dim);
+    border:1px solid var(--line);padding:3px 9px;border-radius:5px;background:var(--bg-raised);}
+
+  /* ---- projects ---- */
+  .proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:700px){.proj-grid{grid-template-columns:1fr;}}
+  .proj-card{border:1px solid var(--line);border-radius:10px;background:var(--panel);padding:20px;
+    display:flex;flex-direction:column;gap:12px;transition:border-color .15s,transform .15s;}
+  .proj-card:hover{border-color:var(--teal-dim);transform:translateY(-2px);}
+  .proj-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+  .proj-name{font-family:var(--font-mono);font-weight:600;font-size:14.5px;color:var(--text);}
+  .badge{font-family:var(--font-mono);font-size:10px;padding:2px 8px;border-radius:100px;white-space:nowrap;}
+  .badge.wip{background:rgba(240,168,104,0.12);color:var(--amber);border:1px solid rgba(240,168,104,0.35);}
+  .badge.live{background:rgba(79,209,197,0.1);color:var(--teal);border:1px solid var(--teal-dim);}
+  .proj-desc{color:var(--text-dim);font-size:13.5px;flex-grow:1;}
+  .proj-link{font-family:var(--font-mono);font-size:12px;color:var(--teal);text-decoration:none;}
+  .proj-link:hover{text-decoration:underline;}
+
+  /* ---- skills ---- */
+  .skill-groups{display:flex;flex-direction:column;gap:16px;}
+  .skill-row{display:flex;gap:18px;align-items:baseline;flex-wrap:wrap;}
+  .skill-cat{font-family:var(--font-mono);font-size:11.5px;color:var(--text-faint);min-width:150px;text-transform:uppercase;letter-spacing:.05em;}
+  .skill-vals{display:flex;flex-wrap:wrap;gap:7px;}
+
+  /* ---- education / note ---- */
+  .edu-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;color:var(--text-dim);font-size:14.5px;margin-bottom:14px;}
+  .note{border-left:2px solid var(--teal-dim);padding:14px 18px;background:var(--panel);border-radius:0 8px 8px 0;
+    font-size:13.5px;color:var(--text-dim);margin-top:10px;}
+  .note b{color:var(--text);}
+
+  /* ---- footer ---- */
+  footer{padding:50px 0 60px;text-align:center;}
+  footer .role{margin-bottom:18px;}
+  .contact-links{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;font-family:var(--font-mono);font-size:13px;margin-bottom:20px;}
+  .contact-links a{text-decoration:none;color:var(--text-dim);border-bottom:1px solid var(--line);padding-bottom:2px;transition:color .15s,border-color .15s;}
+  .contact-links a:hover{color:var(--teal);border-color:var(--teal);}
+  .fine{font-family:var(--font-mono);font-size:11px;color:var(--text-faint);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand"><b>Rampreethi</b>.Rajendran</div>
+    <div class="navlinks">
+      <a href="#experience">experience</a>
+      <a href="#projects">projects</a>
+      <a href="#skills">skills</a>
+      <a href="#contact">contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="status-pill"><span class="dot"></span>STATUS: OPERATIONAL — OPEN TO OPPORTUNITIES</div>
+    <h1>Rampreethi Rajendran</h1>
+    <div class="role">Senior .NET / C# Software Engineer — ASP.NET MVC &amp; Enterprise Systems</div>
+    <p class="summary">I build ASP.NET MVC applications, SharePoint solutions and ERP systems for enterprise clients — currently an ERP platform for construction, previously Bosch's IoT remote-device and firmware-update infrastructure. Comfortable across SOLID, unit testing, CI/CD, and now agentic tools like Claude Code to move faster through review and refactor cycles.</p>
+    <div class="hero-meta">
+      <span>Coimbatore, India</span>
+      <a href="mailto:mailtorampreethi@gmail.com">mailtorampreethi@gmail.com</a>
+      <span>+91 8838040536</span>
+      <a href="https://github.com/Pree-ray" target="_blank" rel="noopener">github.com/Pree-ray</a>
+      <a href="#" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+
+    <div class="uptime">
+      <div class="uptime-label"><span>CAREER UPTIME LOG</span><span>2012 — PRESENT</span></div>
+      <div class="uptime-track">
+        <div class="seg active" style="flex:2.1" title="Capgemini · 2012–2014">CAPGEMINI · 12–14</div>
+        <div class="seg gap" style="flex:2.5" title="Planned maintenance window">PLANNED DOWNTIME · 14–25</div>
+        <div class="seg now" style="flex:1.3" title="Iva Technos · 2025–present">IVA TECHNOS · 25–NOW</div>
+      </div>
+      <div class="uptime-legend">
+        <span><i class="sw" style="background:var(--teal-dim)"></i>deployed &amp; delivering</span>
+        <span><i class="sw" style="background:var(--bg-raised);border:1px solid var(--line)"></i>scheduled break — overseas residency &amp; family</span>
+        <span><i class="sw" style="background:var(--teal)"></i>back online</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="eyebrow">Service log</div>
+    <h2>Experience</h2>
+
+    <div class="log">
+      <div class="log-head">
+        <div>
+          <div class="log-role">Senior Software Engineer</div>
+          <div class="log-org">Iva Technos, Coimbatore</div>
+        </div>
+        <div class="log-time">JUL 2025 → PRESENT</div>
+      </div>
+      <div class="log-body">
+        <div class="log-project">▸ ERP System for Construction Industry (current)</div>
+        <ul class="bullets">
+          <li>Designing ASP.NET MVC modules for project tracking, procurement, inventory and billing, shaped around how construction projects actually run day to day.</li>
+          <li>Building role-based front-ends wired to controllers/views for real-time cost tracking and resource allocation across projects.</li>
+          <li>Designing the database schema and tuning SQL Server queries and stored procedures behind multi-project financial and progress reports.</li>
+          <li>Adding validation, audit trails and role-based access control across the procurement-to-payment cycle with business analysts and site stakeholders.</li>
+          <li>Using Claude Code and other agentic tools day to day — scaffolding modules faster, handling repetitive changes, speeding up review and debugging.</li>
+        </ul>
+        <div class="log-project" style="margin-top:18px;">▸ Remote Interface &amp; Remote Update — Bosch (external engagement, completed)</div>
+        <ul class="bullets">
+          <li>Supported production IoT systems, tracking down issues in MQTT communication, TCP/IP payloads and device connectivity.</li>
+          <li>Built and maintained .NET services for real-time device integration and monitoring, including secure remote firmware/software updates.</li>
+          <li>Built fault-tolerant file processing and SQL-Server-based configuration so behaviour could change without a redeploy.</li>
+          <li>Ran root cause and static code analysis to cut repeat incidents and raise unit test coverage.</li>
+        </ul>
+        <div class="stack">
+          <span class="chip">ASP.NET MVC</span><span class="chip">.NET 6/8</span><span class="chip">SQL Server</span>
+          <span class="chip">MQTT</span><span class="chip">TCP/IP</span><span class="chip">C#</span><span class="chip">CI/CD</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="log">
+      <div class="log-head">
+        <div>
+          <div class="log-role">Senior Software Engineer</div>
+          <div class="log-org">Capgemini India Pvt. Ltd. — Bengaluru / Mumbai</div>
+        </div>
+        <div class="log-time">APR 2012 → APR 2014</div>
+      </div>
+      <div class="log-body">
+        <div class="log-project">▸ Clients: Energy Future Holdings (US) · ResMed (Australia) · Lowe's · SAP DUET Enterprise</div>
+        <ul class="bullets">
+          <li>Led migration of enterprise apps from SharePoint 2003/2007 to 2010 via DocAve for Energy Future Holdings, zero downtime, with tuned SQL retrieval.</li>
+          <li>Built portal development and SAP–SharePoint dashboard integration via SAP DUET, cutting manual data retrieval for ResMed.</li>
+          <li>Ran full SDLC across Agile and Waterfall projects for international clients, leading a small team to on-time delivery.</li>
+        </ul>
+        <div class="stack">
+          <span class="chip">SharePoint 2007/2010</span><span class="chip">DocAve</span><span class="chip">SAP DUET</span><span class="chip">SQL</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow">Repositories</div>
+    <h2>Projects</h2>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="proj-top">
+          <div class="proj-name">device-telemetry-platform</div>
+          <div class="badge wip">IN PROGRESS</div>
+        </div>
+        <div class="proj-desc">A .NET 8 sample built around the Bosch engagement: a background Worker Service simulating device telemetry, a Web API ingesting readings over MQTT/TCP-style payloads, and a shared models library — the pattern behind real-time device monitoring and remote firmware updates.</div>
+        <div class="stack">
+          <span class="chip">.NET 8</span><span class="chip">Worker Service</span><span class="chip">ASP.NET Core API</span><span class="chip">MQTT</span>
+        </div>
+        <a class="proj-link" href="https://github.com/Pree-ray" target="_blank" rel="noopener">view repo ↗</a>
+      </div>
+      <div class="proj-card">
+        <div class="proj-top">
+          <div class="proj-name">erp-construction-modules</div>
+          <div class="badge live">CASE STUDY</div>
+        </div>
+        <div class="proj-desc">Write-up of the ERP modules built at Iva Technos — procurement, inventory, billing and multi-project financial reporting, with the schema and role-based access approach used in production (client code kept private; architecture notes public).</div>
+        <div class="stack">
+          <span class="chip">ASP.NET MVC</span><span class="chip">SQL Server</span><span class="chip">RBAC</span>
+        </div>
+        <a class="proj-link" href="https://github.com/Pree-ray" target="_blank" rel="noopener">view repo ↗</a>
+      </div>
+    </div>
+    <div class="note"><b>Note:</b> device-telemetry-platform is being pushed up from a local solution — see the GitHub polish checklist for how it's being cleaned up before publishing.</div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow">Stack</div>
+    <h2>Skills</h2>
+    <div class="skill-groups">
+      <div class="skill-row"><div class="skill-cat">Languages</div><div class="skill-vals"><span class="chip">C#</span><span class="chip">SQL</span></div></div>
+      <div class="skill-row"><div class="skill-cat">Frameworks</div><div class="skill-vals"><span class="chip">.NET 6/8</span><span class="chip">ASP.NET MVC</span><span class="chip">Windows Services</span><span class="chip">MVVM</span><span class="chip">Dependency Injection</span><span class="chip">SharePoint 2007/2010</span></div></div>
+      <div class="skill-row"><div class="skill-cat">Integration</div><div class="skill-vals"><span class="chip">MQTT</span><span class="chip">TCP/IP</span><span class="chip">SAP Integration</span><span class="chip">RESTful Services</span><span class="chip">JSON Config</span></div></div>
+      <div class="skill-row"><div class="skill-cat">Databases</div><div class="skill-vals"><span class="chip">SQL Server</span><span class="chip">MySQL</span><span class="chip">IBM DB2</span><span class="chip">Stored Procedures</span><span class="chip">Query Tuning</span></div></div>
+      <div class="skill-row"><div class="skill-cat">Tools &amp; DevOps</div><div class="skill-vals"><span class="chip">Visual Studio</span><span class="chip">Git</span><span class="chip">CI/CD</span><span class="chip">Swagger</span><span class="chip">Postman</span></div></div>
+      <div class="skill-row"><div class="skill-cat">AI-Assisted Dev</div><div class="skill-vals"><span class="chip">Claude Code</span><span class="chip">GitHub Copilot</span><span class="chip">Agentic AI Platforms</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="education" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="eyebrow">Background</div>
+    <h2>Education</h2>
+    <div class="edu-row">
+      <span>B.E., Electrical &amp; Electronics Engineering — Velammal College of Engineering &amp; Technology, Madurai</span>
+      <span class="fine">2007 – 2011 · 82%</span>
+    </div>
+    <div class="note"><b>Career note:</b> planned break from 2014–2025 for overseas residency and family commitments. Returned to industry in 2025 and got back up to speed quickly on modern .NET, IoT, and DevOps practice.</div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="eyebrow" style="text-align:center;">Get in touch</div>
+    <div class="role" style="text-align:center;color:var(--text-dim);font-family:var(--font-mono);font-size:13px;">Currently interviewing — open to Senior / Lead .NET roles</div>
+    <div class="contact-links" style="margin-top:18px;">
+      <a href="mailto:mailtorampreethi@gmail.com">Email</a>
+      <a href="https://github.com/Pree-ray" target="_blank" rel="noopener">GitHub</a>
+      <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+      <span>+91 8838040536</span>
+    </div>
+    <div class="fine">Coimbatore, India · Built &amp; deployed on GitHub Pages</div>
+  </div>
+</footer>
+
+</body>
+</html>
