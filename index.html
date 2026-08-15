@@ -259,28 +259,27 @@
     <div class="proj-grid">
       <div class="proj-card">
         <div class="proj-top">
-          <div class="proj-name">device-telemetry-platform</div>
-          <div class="badge wip">IN PROGRESS</div>
+          <div class="proj-name">device-telemetry-gateway</div>
+          <div class="badge live">.NET 10</div>
         </div>
-        <div class="proj-desc">A .NET 8 sample built around the Bosch engagement: a background Worker Service simulating device telemetry, a Web API ingesting readings over MQTT/TCP-style payloads, and a shared models library — the pattern behind real-time device monitoring and remote firmware updates.</div>
+        <div class="proj-desc">An IoT telemetry pipeline built around the Bosch engagement: simulated field devices publish readings over MQTT to an embedded broker, a Worker Service classifies device health (Online/Warning/Fault) and persists to SQL Server via EF Core, and an ASP.NET Core API exposes it — the pattern behind real-time device monitoring and remote firmware updates.</div>
         <div class="stack">
-          <span class="chip">.NET 8</span><span class="chip">Worker Service</span><span class="chip">ASP.NET Core API</span><span class="chip">MQTT</span>
+          <span class="chip">.NET 10</span><span class="chip">MQTTnet</span><span class="chip">Worker Service</span><span class="chip">EF Core</span><span class="chip">xUnit</span>
         </div>
-        <a class="proj-link" href="https://github.com/Pree-ray" target="_blank" rel="noopener">view repo ↗</a>
+        <a class="proj-link" href="https://github.com/Pree-ray/device-telemetry-gateway" target="_blank" rel="noopener">view repo ↗</a>
       </div>
       <div class="proj-card">
         <div class="proj-top">
-          <div class="proj-name">erp-construction-modules</div>
-          <div class="badge live">CASE STUDY</div>
+          <div class="proj-name">procurement-inventory-api</div>
+          <div class="badge live">.NET 10</div>
         </div>
-        <div class="proj-desc">Write-up of the ERP modules built at Iva Technos — procurement, inventory, billing and multi-project financial reporting, with the schema and role-based access approach used in production (client code kept private; architecture notes public).</div>
+        <div class="proj-desc">A layered ASP.NET Core API mirroring day-to-day ERP procurement work: suppliers, a product catalog with reorder thresholds, and purchase orders enforcing a real Draft → Submitted → Approved → Received → Closed workflow in the domain layer, with JWT auth, role-based access control and a full audit trail.</div>
         <div class="stack">
-          <span class="chip">ASP.NET MVC</span><span class="chip">SQL Server</span><span class="chip">RBAC</span>
+          <span class="chip">ASP.NET Core</span><span class="chip">EF Core</span><span class="chip">JWT Auth</span><span class="chip">Clean Architecture</span><span class="chip">xUnit</span>
         </div>
-        <a class="proj-link" href="https://github.com/Pree-ray" target="_blank" rel="noopener">view repo ↗</a>
+        <a class="proj-link" href="https://github.com/Pree-ray/procurement-inventory-api" target="_blank" rel="noopener">view repo ↗</a>
       </div>
     </div>
-    <div class="note"><b>Note:</b> device-telemetry-platform is being pushed up from a local solution — see the GitHub polish checklist for how it's being cleaned up before publishing.</div>
   </div>
 </section>
 
